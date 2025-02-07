@@ -21,8 +21,8 @@ import com.example.movieapp.navigation.MoviesScreens
 fun HomeScreen(navController: NavController) {
     Scaffold(
         topBar = {
-            TopAppBar(backgroundColor = Color.Magenta, elevation = 5.dp) {
-                Text(text = "Movies")
+            TopAppBar(backgroundColor = Color.LightGray, elevation = 5.dp) {
+                Text(text = "Movies", modifier = Modifier.padding(4.dp))
             }
         },
     ) {
