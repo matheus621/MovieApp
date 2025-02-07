@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.movieapp.MovieRow
+import com.example.movieapp.navigation.MoviesScreens
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
@@ -51,7 +52,7 @@ fun MainContent(
         LazyColumn {
             items(items = movieList) {
                 MovieRow(movie = it) { movie ->
-
+                    navController.navigate(route = MoviesScreens.DetailsScreen.name)
                 }
             }
         }
