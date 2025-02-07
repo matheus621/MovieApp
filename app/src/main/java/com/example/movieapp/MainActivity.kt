@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -54,13 +55,23 @@ fun MainContent(
         "Avatar",
         "300",
         "Harry Potter",
-        "Life"
+        "Life",
+        "Avatar",
+        "300",
+        "Harry Potter",
+        "Life",
+        "Avatar",
+        "300",
+        "Harry Potter",
+        "Life",
     )
 ) {
     Column(modifier = Modifier.padding(12.dp)) {
         LazyColumn {
             items(items = movieList) {
-                MovieRow(movie = it)
+                MovieRow(movie = it) { movie ->
+
+                }
             }
         }
     }
@@ -68,12 +79,15 @@ fun MainContent(
 }
 
 @Composable
-fun MovieRow(movie: String) {
+fun MovieRow(movie: String, onItemClick: (String) -> Unit = {}) {
     Card(
         modifier = Modifier
             .padding(4.dp)
             .fillMaxWidth()
-            .height(130.dp),
+            .height(130.dp)
+            .clickable {
+                onItemClick(movie)
+            },
         shape = RoundedCornerShape(corner = CornerSize(16.dp)),
         elevation = 6.dp
     ) {
